@@ -10,7 +10,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    sh 'docker build -t akshu20791/akshatnewimg6july:v1 .'
+                    sh 'docker build -t kishanshah123/akshatnewimg6july:v1 .'
                     sh 'docker images'
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-pwd', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
                     sh '''
                       echo "$PASS" | docker login -u "$USER" --password-stdin
-                      docker push akshu20791/akshatnewimg6july:v1
+                      docker push kishanshah123/akshatnewimg6july:v1
                     '''
                 }
             }
